@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<rect width="1600" height="1000" fill="#F4F0E7"/>
+<circle cx="1110" cy="360" r="285" fill="#C92D27"/>
+<path d="M0 600 Q260 500 480 585T850 570T1220 590T1600 550V680H0Z" fill="#AAA59B"/>
+<g fill="#171816"><path d="M1120 485h330v34h-330z"/><path d="M1150 530h270v22h-270z"/><path d="M1180 510h27v190h-27zM1360 510h27v190h-27z"/></g>
+<g font-family="Arial,Helvetica,sans-serif" fill="#171816"><text x="110" y="260" font-size="128" font-weight="800" letter-spacing="-6">AI GUILD</text><text x="120" y="330" font-size="38" letter-spacing="24">IZUMO</text><rect x="120" y="375" width="70" height="8" fill="#C92D27"/><text x="120" y="455" font-size="28" letter-spacing="10">IMAGINE / BUILD / SHARE</text></g>
+<g stroke="#171816" opacity=".18"><path d="M0 690H1600"/><path d="M0 720H1600"/><path d="M0 755H1600"/></g>
+</svg>
