@@ -1,0 +1,40 @@
+name: Refresh project screenshots
+
+on:
+  push:
+    paths:
+      - ".github/workflows/refresh-project-screenshots.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Capture live project screenshots
+        shell: bash
+        run: |
+          set -euxo pipefail
+          CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser)"
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --hide-scrollbars             --window-size=1280,800 --virtual-time-budget=5000             --screenshot=assets/projects/asakura.png             "https://kakkoischool.github.io/asakura/"
+          "$CHROME" --headless=new --no-sandbox --disable-gpu --hide-scrollbars             --window-size=1280,800 --virtual-time-budget=5000             --screenshot=assets/projects/fps262626.png             "https://fps262626.github.io/game-web-FPS/#arena"
+          file assets/projects/asakura.png assets/projects/fps262626.png
+
+      - name: Commit refreshed screenshots
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/projects/asakura.png assets/projects/fps262626.png
+          if git diff --cached --quiet; then
+            echo "Screenshots unchanged"
+            exit 0
+          fi
+          git commit -m "Refresh Asakura and FPS demo screenshots"
+          git push
